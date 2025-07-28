@@ -1,4 +1,4 @@
-[1.3.0] - 2025-07-28
+## [1.3.0] - 2025-07-28
 
 ### Added
 - Complete GUI redesign with a modern, clean look featuring:  
