@@ -1,5 +1,3 @@
-All notable changes to the Multiplerblx project will be documented in this file.
-
 ## [1.2.0] - 2025-07-27
 ### Added
 - Slide animation for tab transitions, replacing the faulty opacity animation.
