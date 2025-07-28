@@ -1,4 +1,4 @@
-[1.6.0-alpha] - 2025-07-30
+## [1.6.0-alpha] - 2025-07-30
 
 ### Bugfixes
 - Fixed authentication failures and JSON parsing errors during token validation using Roblox API.
