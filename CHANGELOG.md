@@ -1,7 +1,7 @@
 ## [1.5.0] - 2025-07-30
 
 ### Added
-- Real Roblox account info fetching: Uses official Roblox API to validate `.ROBLOSECURITY` tokens and display actual usernames and user IDs.
+- Udated Real Roblox account info fetching: Uses official Roblox API to validate `.ROBLOSECURITY` tokens better and display actual usernames and user IDs.
 - Account context menu: Right-click entries to quickly copy Username, Token, or all account details to clipboard.
 - Settings persistence: Editable Roblox executable path saved automatically.
 - Improved logging: Logs detailed token validation results with timestamps and error descriptions.
