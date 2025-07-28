@@ -1,3 +1,22 @@
+[1.6.0-alpha] - 2025-07-30
+
+### Bugfixes
+- Fixed authentication failures and JSON parsing errors during token validation using Roblox API.
+- Added robust handling for expired/invalid tokens, with optional automatic removal from token list.
+- Improved auto-detection of RobloxPlayerBeta.exe path dynamically based on the current user profile folder.
+- Fixed UI refresh and threading issues, preventing potential frozen or broken states.
+- Corrected Check Update button logic to actually reload changelogs and show friendly messages:
+  - "Refreshed changelogs" if content changed
+  - "No new updates" if unchanged
+  - Shows new version info if update is detected
+- Added context menu (right-click) on accounts list for copying Username, Token, or all details.
+- UI polishing and theme toggling fixes.
+
+### Improvements
+- Logs contain detailed token validation results with timestamped messages.
+- Server hopping improved for safe, clean process restart.
+- Enhanced user experience with improved status bar messages and log visuals.
+
 ## [1.5.0-alpha] - 2025-07-30
 
 ### Added
