@@ -1,3 +1,25 @@
+## [1.5.0] - 2025-07-30
+
+### Added
+- Real Roblox account info fetching: Uses official Roblox API to validate `.ROBLOSECURITY` tokens and display actual usernames and user IDs.
+- Account context menu: Right-click entries to quickly copy Username, Token, or all account details to clipboard.
+- Settings persistence: Editable Roblox executable path saved automatically.
+- Improved logging: Logs detailed token validation results with timestamps and error descriptions.
+- Animated tab transitions: Smooth slide animation replaces opacity fades for better UX.
+
+### Changed
+- Sidebar UI revamped with consistent theming and button hover effects for both dark and light themes.
+- Account list owner-drawn with refined status colors and alternating rows.
+- Server hopping logic enhanced for cleaner process management.
+- Background timers for changelog updates and instance monitoring improved for thread safety.
+
+### Fixed
+- Replaced deprecated Roblox API endpoint with current one to fix token validation 404 Not Found errors.
+- Added missing event handlers including ListView double-click and right-click menus.
+- Removed invalid placeholders from code causing compilation errors (`...`).
+- Fixed redraw and flicker bugs for theme switching and ListView owner drawing.
+- Removed dependency on external JSON libraries by using built-in `System.Text.Json`.
+
 ## [1.4.0] - 2025-07-29
 
 ### Added
