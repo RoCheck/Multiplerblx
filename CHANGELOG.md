@@ -1,3 +1,25 @@
+## [1.4.0] - 2025-07-29
+
+### Added
+- **Real Roblox account info fetching:** Multiplerblx now calls Roblox’s official API to fetch real usernames and user IDs from tokens, powering accurate account display and validation.
+- **Account context menu:** Right-click accounts to quickly copy Username, Token, or all details to clipboard for convenience.
+- **Settings persistence:** Editable Roblox executable path is now saved automatically on change for user convenience.
+- **Improved logging:** Logs now include detailed token validation results with timestamps and status for better tracking.
+- **Animated tab transitions:** Subtle slide animations between tabs for a smoother user experience.
+
+### Changed
+- Sidebar UI and toolstrip buttons enhanced with hover color feedback and consistent theming across dark/light modes.
+- Account status colors refined and better error handling on API failures.
+- Optimized server hopping logic for clean process management.
+- Background timers for instance count monitoring and changelog updates enhanced for stability and thread safety.
+
+### Fixed
+- Removed invalid placeholders from code samples (no more `...` errors).
+- Implemented missing event handlers for ListView double-click and context menus.
+- Fixed flickering issues and redraw bugs with owner-drawn ListView on theme switch.
+- Removed external dependencies by using built-in System.Text.Json for parsing.
+- Fixed several bugs with token loading, export, and refreshing status logic.
+
 ## [1.3.0] - 2025-07-28
 
 ### Added
