@@ -1,4 +1,4 @@
-## [1.5.0] - 2025-07-30
+## [1.5.0-alpha] - 2025-07-30
 
 ### Added
 - Udated Real Roblox account info fetching: Uses official Roblox API to validate `.ROBLOSECURITY` tokens better and display actual usernames and user IDs.
@@ -20,7 +20,7 @@
 - Fixed redraw and flicker bugs for theme switching and ListView owner drawing.
 - Removed dependency on external JSON libraries by using built-in `System.Text.Json`.
 
-## [1.4.0] - 2025-07-29
+## [1.4.0-alpha] - 2025-07-29
 
 ### Added
 - **Real Roblox account info fetching:** Multiplerblx now calls Roblox’s official API to fetch real usernames and user IDs from tokens, powering accurate account display and validation.
@@ -42,7 +42,7 @@
 - Removed external dependencies by using built-in System.Text.Json for parsing.
 - Fixed several bugs with token loading, export, and refreshing status logic.
 
-## [1.3.0] - 2025-07-28
+## [1.3.0-alpha] - 2025-07-28
 
 ### Added
 - Complete GUI redesign with a modern, clean look featuring:  
@@ -72,7 +72,7 @@
 - Prevented flickering and redraw bugs during theme switching and redraws.  
 - Corrected owner-draw drawing logic and ensured list row highlights and colors are consistent in both themes.
 
-## [1.2.0] - 2025-07-27
+## [1.2.0-alpha] - 2025-07-27
 ### Added
 - Slide animation for tab transitions, replacing the faulty opacity animation.
 - Comprehensive error handling for file operations and HTTP requests.
@@ -87,7 +87,7 @@
 - Corrected invalid `TabPage.Opacity` usage.
 - Fixed faulty `ControlExtensions` and `this` in static context errors.
 
-## [1.1.0] - 2025-06-15
+## [1.1.0-alpha] - 2025-06-15
 ### Added
 - Ban detection for Roblox accounts via API checks.
 - Server hopping feature with a 20-minute timer.
@@ -95,7 +95,7 @@
 - Token export functionality to save account details.
 - Account status refresh button to check for bans.
 
-## [1.0.0] - 2025-05-01
+## [1.0.0-alpha] - 2025-05-01
 ### Added
 - Initial implementation of Multiplerblx.
 - Token loading from text files.
