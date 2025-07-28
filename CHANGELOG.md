@@ -1,3 +1,33 @@
+[1.3.0] - 2025-07-28
+
+### Added
+- Complete GUI redesign with a modern, clean look featuring:  
+  - Vertical sidebar navigation with icons and tooltips.  
+  - Responsive layout with enhanced spacing and padding.  
+  - Dark and light themes fully integrated with toggle support.  
+- RichTextBox-based log output: color-coded, scrollable, and more readable logs.  
+- Owner-drawn account ListView with alternating row colors and per-status color highlighting (Active, Banned, Error, Idle).  
+- Context menu for accounts list: Copy Username, Copy Token, Copy All.  
+- Double-click an account to view detailed account info popup (Username, UserID, Token, Status).  
+- Editable and persistent Roblox executable path setting.  
+- Basic animated tab transitions with slide effects to replace opacity glitches.  
+- Improved and more robust event handling to prevent handler stacking on theme toggles.  
+- Background timers for changelog fetching, instance monitoring, and server hopping with safer thread invocation.
+
+### Changed
+- Sidebar navigation now docks left instead of horizontal top; buttons redesigned for clarity and usability.  
+- Status bar moved to bottom and redesigned with gradient background and improved status message coloring.  
+- Logging mechanics improved with asynchronous safe UI updates and file output.  
+- Server hop logic refined to kill and restart Roblox processes cleanly every 20 minutes.  
+- Code restructured for better maintainability, error handling, and clarity.
+
+### Fixed
+- Resolved compilation errors related to invalid placeholder use in code (`...`).  
+- Fixed missing event handler methods causing runtime errors on ListView double-click.  
+- Removed illegal or missing references to `Properties.Settings` by removing or substituting setting persistence with manual editing.  
+- Prevented flickering and redraw bugs during theme switching and redraws.  
+- Corrected owner-draw drawing logic and ensured list row highlights and colors are consistent in both themes.
+
 ## [1.2.0] - 2025-07-27
 ### Added
 - Slide animation for tab transitions, replacing the faulty opacity animation.
