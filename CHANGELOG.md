@@ -1,4 +1,20 @@
 Changelog
+[1.6.6-alpha] - 2025-07-29
+Changed
+
+Updated token prefix check to CAEaAhAB from _|- in ToolStripBtnLoadTokens_Click and ToolStripBtnGetAccounts_Click to filter tokens before loading and validation.
+Maintained Roblox API integration (https://users.roblox.com/v1/users/authenticated) for token-based authentication and session verification.
+
+Bugfixes
+
+Ensured only tokens starting with CAEaAhAB are processed, reducing invalid API calls and HTTP Unauthorized errors.
+Retained fixes from 1.6.5-alpha for X-CSRF-Token handling, session verification, and concurrent token processing.
+
+Improvements
+
+Improved token filtering to enhance performance and reduce errors during loading and validation.
+Maintained support for up to 10 concurrent tokens with SemaphoreSlim for Roblox API rate limit compliance.
+
 [1.6.5-alpha] - 2025-07-29
 Added
 
