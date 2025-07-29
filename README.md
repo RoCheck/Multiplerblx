@@ -1,21 +1,33 @@
-# Multiplerblx
+# Multiplerblx (MultipleRoblox)
+Multiplerblx is a tool designed to log into up to 10 Roblox accounts at once and join them into the same game using a specified gameId.
 
-this is Multiplerblx aka MultipleRoblox 
-this tool is used to log into 10 accounts at once into one game that you want using a gameid
+# Why Was This Tool Created?
+This tool was made to log Roblox users' in-game chat across multiple accounts. The collected chat data will be used for AI training and development.
 
-Now whyd i make this tool?
+Full release date: April 10th, 2026
 
-well this tool was made so then i could log roblox users chats full release 2026 april 10th
-these chats will be used for Ai making 
+Chat logging will be included in the full release
 
-now this tool doesnt have anything for injecting lua
-code into roblox since im not that advanced at coding yet
-thats why we can use xeno 
+This tool does not currently support Lua script injection
 
-# Whats xeno?
+# No Lua Injection Support
+Multiplerblx does not have any built-in functionality to inject Lua code into Roblox. This is due to the current development level and coding limitations. Script execution may be added in the future.
 
-xeno is a roblox executor trusted by thousands
-now i am not fully sure if xeno is safe or not 
-now in late 2026 october 5th 
-there will be a built in chat logger so then no 
-executor will be needed or 2026 april 10h 
+# What is Xeno?
+Xeno is a Roblox executor trusted by many users. While Multiplerblx does not rely on Xeno, it can be used alongside it if Lua script execution is needed.
+
+## Note: The safety and reliability of Xeno cannot be guaranteed. Use third-party tools at your own discretion.
+ 
+# Upcoming Features
+Feature	Planned Release
+Built-in Chat Logger	April 10th, 2026
+No Executor Needed	October 5th, 2026
+
+# Notes
+Multiplerblx is intended for educational and AI development use only
+
+Use responsibly and in compliance with Roblox's terms of service
+
+This project is currently in early development
+
+
