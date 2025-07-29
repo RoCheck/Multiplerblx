@@ -1,3 +1,17 @@
+# Changelog
+
+## [1.6.2-alpha] - 2025-07-31
+
+### Bugfixes
+- Fixed compilation error in `Form1.designer.cs`: Removed invalid syntax involving the `/` operator (e.g., `new Form1 / InitializeComponent`) to ensure proper initialization of the form.
+- Corrected namespace inconsistencies across `Program.cs`, `Form1.cs`, and `Form1.designer.cs`: Standardized to `Multiplerbx` to resolve errors like "The type or namespace name 'Form1' could not be found" and "The type or namespace name 'Multiplerblx' could not be found."
+- Added missing `using System.Windows.Forms;` in `Program.cs` to fix the "'object' does not contain a definition for 'ApplicationConfiguration'" error.
+- Ensured `app.manifest` with `requireAdministrator` is correctly referenced in `.csproj` to maintain admin privilege requirement for process management and file operations.
+
+### Improvements
+- Improved project maintainability by ensuring consistent namespace usage (`Multiplerbx`) across all files.
+- Clarified admin privilege setup to support actions like launching and killing `RobloxPlayerBeta.exe` processes during server hopping.
+
 ## [1.6.1-alpha] - 2025-07-30
 
 ### Bugfixes
@@ -40,7 +54,7 @@
 ## [1.5.0-alpha] - 2025-07-30
 
 ### Added
-- Udated Real Roblox account info fetching: Uses official Roblox API to validate `.ROBLOSECURITY` tokens better and display actual usernames and user IDs.
+- Updated Real Roblox account info fetching: Uses official Roblox API to validate `.ROBLOSECURITY` tokens better and display actual usernames and user IDs.
 - Account context menu: Right-click entries to quickly copy Username, Token, or all account details to clipboard.
 - Settings persistence: Editable Roblox executable path saved automatically.
 - Improved logging: Logs detailed token validation results with timestamps and error descriptions.
@@ -84,34 +98,35 @@
 ## [1.3.0-alpha] - 2025-07-28
 
 ### Added
-- Complete GUI redesign with a modern, clean look featuring:  
-  - Vertical sidebar navigation with icons and tooltips.  
-  - Responsive layout with enhanced spacing and padding.  
-  - Dark and light themes fully integrated with toggle support.  
-- RichTextBox-based log output: color-coded, scrollable, and more readable logs.  
-- Owner-drawn account ListView with alternating row colors and per-status color highlighting (Active, Banned, Error, Idle).  
-- Context menu for accounts list: Copy Username, Copy Token, Copy All.  
-- Double-click an account to view detailed account info popup (Username, UserID, Token, Status).  
-- Editable and persistent Roblox executable path setting.  
-- Basic animated tab transitions with slide effects to replace opacity glitches.  
-- Improved and more robust event handling to prevent handler stacking on theme toggles.  
+- Complete GUI redesign with a modern, clean look featuring:
+  - Vertical sidebar navigation with icons and tooltips.
+  - Responsive layout with enhanced spacing and padding.
+  - Dark and light themes fully integrated with toggle support.
+- RichTextBox-based log output: color-coded, scrollable, and more readable logs.
+- Owner-drawn account ListView with alternating row colors and per-status color highlighting (Active, Banned, Error, Idle).
+- Context menu for accounts list: Copy Username, Copy Token, Copy All.
+- Double-click an account to view detailed account info popup (Username, UserID, Token, Status).
+- Editable and persistent Roblox executable path setting.
+- Basic animated tab transitions with slide effects to replace opacity glitches.
+- Improved and more robust event handling to prevent handler stacking on theme toggles.
 - Background timers for changelog fetching, instance monitoring, and server hopping with safer thread invocation.
 
 ### Changed
-- Sidebar navigation now docks left instead of horizontal top; buttons redesigned for clarity and usability.  
-- Status bar moved to bottom and redesigned with gradient background and improved status message coloring.  
-- Logging mechanics improved with asynchronous safe UI updates and file output.  
-- Server hop logic refined to kill and restart Roblox processes cleanly every 20 minutes.  
+- Sidebar navigation now docks left instead of horizontal top; buttons redesigned for clarity and usability.
+- Status bar moved to bottom and redesigned with gradient background and improved status message coloring.
+- Logging mechanics improved with asynchronous safe UI updates and file output.
+- Server hop logic refined to kill and restart Roblox processes cleanly every 20 minutes.
 - Code restructured for better maintainability, error handling, and clarity.
 
 ### Fixed
-- Resolved compilation errors related to invalid placeholder use in code (`...`).  
-- Fixed missing event handler methods causing runtime errors on ListView double-click.  
-- Removed illegal or missing references to `Properties.Settings` by removing or substituting setting persistence with manual editing.  
-- Prevented flickering and redraw bugs during theme switching and redraws.  
+- Resolved compilation errors related to invalid placeholder use in code (`...`).
+- Fixed missing event handler methods causing runtime errors on ListView double-click.
+- Removed illegal or missing references to `Properties.Settings` by removing or substituting setting persistence with manual editing.
+- Prevented flickering and redraw bugs during theme switching and redraws.
 - Corrected owner-draw drawing logic and ensured list row highlights and colors are consistent in both themes.
 
 ## [1.2.0-alpha] - 2025-07-27
+
 ### Added
 - Slide animation for tab transitions, replacing the faulty opacity animation.
 - Comprehensive error handling for file operations and HTTP requests.
@@ -127,6 +142,7 @@
 - Fixed faulty `ControlExtensions` and `this` in static context errors.
 
 ## [1.1.0-alpha] - 2025-06-15
+
 ### Added
 - Ban detection for Roblox accounts via API checks.
 - Server hopping feature with a 20-minute timer.
@@ -135,6 +151,7 @@
 - Account status refresh button to check for bans.
 
 ## [1.0.0-alpha] - 2025-05-01
+
 ### Added
 - Initial implementation of Multiplerblx.
 - Token loading from text files.
