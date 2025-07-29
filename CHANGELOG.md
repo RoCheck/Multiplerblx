@@ -1,456 +1,265 @@
-Changelog
-[2.0.8-alpha] - 2025-07-29
-Added
+# Changelog
 
-Context menu for accounts list with options to copy username, token, or all details to clipboard.
-Animated tab transitions with slide effects for smoother UI navigation.
+All notable changes to this project will be documented in this file.
 
-Changed
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Removed Robux, friends, and badges fetching from FetchAccountInfoAsync and AddAccountCard to eliminate sensitive data access.
-Removed Discord webhook notifications to reduce exposure of bot actions.
-Simplified account cards to display only username and user ID for cleaner UI.
-Updated token validation to support both _|- and CAEaAhAB tokens with regex checks.
-Enhanced UpdateStatus to use this.InvokeRequired and this.Invoke for thread-safe updates to lblStatus.
+---
 
-Bugfixes
+## [2.0.8-alpha] - 2025-07-29
 
-Fixed 'robux' does not exist in the current context by removing all Robux-related code.
-Fixed 'await' operator can only be used within an async method by ensuring all methods using await are marked async with proper Task return types.
-Fixed 'ToolStripStatusLabel' does not contain definitions for 'IsHandleCreated', 'InvokeRequired', or 'Invoke' by using this.InvokeRequired and this.Invoke in UpdateStatus.
-Ensured thread-safe UI updates for txtLogOutput, lstAccounts, txtTokens, flpAccounts, txtChangelog, txtTargetUsername, and txtMessage with this.IsHandleCreated checks.
-Maintained fixes from 2.0.7-alpha for token validation and cross-thread errors.
+### ✨ Added
+- **Context Menu Enhancement**: Added right-click context menu for accounts list with options to copy username, token, or all details to clipboard
+- **UI Animations**: Implemented animated tab transitions with smooth slide effects for enhanced navigation experience
 
-Improvements
+### 🔄 Changed
+- **Security Improvements**: Removed Robux, friends, and badges fetching from `FetchAccountInfoAsync` and `AddAccountCard` to eliminate sensitive data access
+- **Notification System**: Removed Discord webhook notifications to reduce exposure of bot actions
+- **UI Simplification**: Simplified account cards to display only username and user ID for cleaner interface
+- **Token Support**: Updated token validation to support both `_|-` and `CAEaAhAB` tokens with regex pattern matching
+- **Thread Safety**: Enhanced `UpdateStatus` to use `this.InvokeRequired` and `this.Invoke` for proper thread-safe UI updates
 
-Enhanced code comments in Form1.cs for clarity and GitHub readability.
-Removed sensitive placeholders (e.g., Discord client ID) with instructions for user configuration.
-Standardized Markdown formatting in changelog with ## headings and consistent bullet points.
-Maintained core features: token loading, validation, account switching, game launching, server hopping, and session verification.
-Optimized API calls to essential endpoints (mobileapi/userinfo, oauth/v1/userinfo, thumbnails.roblox.com).
+### 🐛 Fixed
+- Resolved `'robux' does not exist in the current context` compilation error by removing all Robux-related code
+- Fixed `'await' operator can only be used within an async method` by ensuring proper async method signatures with Task return types
+- Corrected `'ToolStripStatusLabel' does not contain definitions` error by implementing proper thread-safe UI updates
+- Ensured thread-safe operations for all UI controls: `txtLogOutput`, `lstAccounts`, `txtTokens`, `flpAccounts`, `txtChangelog`, `txtTargetUsername`, and `txtMessage`
+- Maintained all fixes from v2.0.7-alpha for token validation and cross-thread errors
 
-[2.0.7-alpha] - 2025-07-29
-Bugfixes
+### 🚀 Improvements
+- **Code Quality**: Enhanced code comments in `Form1.cs` for better clarity and GitHub readability
+- **Security**: Removed sensitive placeholders (Discord client ID) with clear user configuration instructions
+- **Documentation**: Standardized Markdown formatting throughout changelog with consistent headings and bullet points
+- **Core Features**: Maintained essential functionality including token loading, validation, account switching, game launching, server hopping, and session verification
+- **API Optimization**: Streamlined API calls to essential endpoints only (`mobileapi/userinfo`, `oauth/v1/userinfo`, `thumbnails.roblox.com`)
 
-Fixed Token Invalid Error (HTTP Unauthorized):
-Updated FetchAccountInfoAsync and VerifySessionAsync to set .ROBLOSECURITY cookie with Domain = ".roblox.com" to cover all subdomains.
-Added OAuth support for CAEaAhAB tokens using https://apis.roblox.com/oauth/v1/userinfo with Bearer token authentication.
-Strengthened token validation in ToolStripBtnLoadTokens_Click and ToolStripBtnGetAccounts_Click with regex (^_\|WARNING:-Do-not-share-this) for _|- tokens and CAEaAhAB prefix check.
-Added detailed HTTP error logging in FetchAccountInfoAsync to capture response content for 401 Unauthorized errors.
+---
 
+## [2.0.7-alpha] - 2025-07-29
 
-Re-verified Cross-Thread Operation Fix:
-Confirmed LogMessage always uses Invoke for txtLogOutput updates.
-Added IsHandleCreated checks in LogMessage, UpdateAccountList, RemoveInvalidTokens, ToolStripBtnLoadTokens_Click, ToolStripBtnGetAccounts_Click, and AddAccountCard.
-Kept try-catch blocks around Invoke calls to log failures to RobloxMultiLog.txt.
+### 🐛 Critical Fixes
 
+#### Token Authentication Issues
+- **Fixed HTTP 401 Unauthorized Errors**: Updated `FetchAccountInfoAsync` and `VerifySessionAsync` to properly set `.ROBLOSECURITY` cookie with `Domain = ".roblox.com"` for full subdomain coverage
+- **OAuth Support**: Added support for `CAEaAhAB` tokens using `https://apis.roblox.com/oauth/v1/userinfo` with Bearer token authentication
+- **Enhanced Validation**: Strengthened token validation with regex pattern `^_\|WARNING:-Do-not-share-this` for `_|-` tokens and `CAEaAhAB` prefix verification
+- **Error Logging**: Implemented detailed HTTP error logging to capture response content for 401 Unauthorized errors
 
-Re-verified Await Operator Fix:
-Confirmed all await calls are in async methods, maintaining 2.0.4-alpha fix.
+#### Thread Safety Improvements
+- **Cross-Thread Operations**: Re-verified and enhanced thread-safe UI updates across all components
+- **Handle Validation**: Added `IsHandleCreated` checks in critical methods: `LogMessage`, `UpdateAccountList`, `RemoveInvalidTokens`, `ToolStripBtnLoadTokens_Click`, `ToolStripBtnGetAccounts_Click`, and `AddAccountCard`
+- **Error Handling**: Implemented comprehensive try-catch blocks around all `Invoke` calls with logging to `RobloxMultiLog.txt`
 
+#### Code Quality Assurance
+- **Async Operations**: Re-verified all `await` calls are properly contained within async methods
+- **Reference Fixes**: Confirmed `robux = 0` initialization covers all return paths in `FetchAccountInfoAsync`
 
-Re-verified Robux Reference Fix:
-Confirmed robux = 0 initialization in FetchAccountInfoAsync covers all return paths.
-Ensured account.Robux is used in AddAccountCard and no stray robux references exist.
+### 🚀 Improvements
+- **Authentication Flow**: Enhanced token validation with regex patterns and detailed HTTP 401 error logging
+- **Thread Safety**: Improved thread safety with comprehensive `IsHandleCreated` checks across all UI updates
+- **Cookie Management**: Updated `ToolStripBtnFollow_Click` and `ToolStripBtnSendMessage_Click` to use proper domain-wide cookie settings
+- **Feature Retention**: Maintained all v2.0.6-alpha features including avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling
 
+---
 
+## [2.0.6-alpha] - 2025-07-29
 
-Improvements
+### 🐛 Major Fixes
 
-Enhanced token validation with regex for _|- tokens and detailed error logging for HTTP 401 responses.
-Improved thread safety with IsHandleCreated checks across all UI updates.
-Updated ToolStripBtnFollow_Click and ToolStripBtnSendMessage_Click to set .ROBLOSECURITY cookie with Domain = ".roblox.com".
-Maintained all 2.0.6-alpha features: avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling.
+#### Cross-Thread Operation Errors
+- **UI Thread Safety**: Simplified `LogMessage` to consistently use `Invoke` for all `txtLogOutput` updates
+- **Method Updates**: Added proper `Invoke` calls to `ToolStripBtnLoadTokens_Click`, `ToolStripBtnGetAccounts_Click`, `SwitchAccount`, and `RemoveInvalidTokens`
+- **Error Handling**: Implemented try-catch blocks around all `Invoke` calls with error logging to `RobloxMultiLog.txt`
+- **Game Monitoring**: Confirmed `MonitorGameAsync` uses proper `Invoke` for `panel.Controls.Add` and `gameLabel` updates
 
-[2.0.6-alpha] - 2025-07-29
-Bugfixes
+#### Code Verification
+- **Async Compliance**: Re-verified all `await` calls are within async methods (maintained from v2.0.4-alpha)
+- **Reference Integrity**: Confirmed `robux = 0` initialization and consistent `account.Robux` usage
 
-Fixed Cross-Thread Operation Error:
-Simplified LogMessage to always use Invoke for txtLogOutput updates.
-Added Invoke to ToolStripBtnLoadTokens_Click, ToolStripBtnGetAccounts_Click, SwitchAccount, and RemoveInvalidTokens for txtTokens, lstAccounts, flpAccounts, and MessageBox updates.
-Added try-catch around all Invoke calls to log errors to RobloxMultiLog.txt.
-Confirmed MonitorGameAsync uses Invoke for panel.Controls.Add and gameLabel updates (from 2.0.5-alpha).
+### 🚀 Improvements
+- **Thread Safety**: Enhanced thread safety for all UI updates with consistent `Invoke` usage patterns
+- **Error Logging**: Added comprehensive error logging for failed `Invoke` operations
+- **Feature Maintenance**: Preserved all v2.0.5-alpha features including avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling
 
+---
 
-Re-verified Await Operator Fix:
-Confirmed all await calls are in async methods, maintaining 2.0.4-alpha fix.
+## [2.0.5-alpha] - 2025-07-29
 
+### 🐛 Fixes
+- **Thread Safety**: Ensured all `txtLogOutput` updates in `LogMessage` use proper `Invoke` calls
+- **UI Updates**: Added `Invoke` to `UpdateAccountList` and `RemoveInvalidTokens` for safe `lstAccounts` and `txtTokens` updates
+- **Game Monitoring**: Added `Invoke` to `MonitorGameAsync` for thread-safe addition of `gameLabel` and `watchButton` to panels
+- **Async Verification**: Re-verified `ServerHopTimer_ElapsedAsync` and `SchedulerTimer_ElapsedAsync` async compliance
+- **Reference Consistency**: Confirmed `robux = 0` initialization and `account.Robux` usage in `AddAccountCard`
 
-Re-verified Robux Reference Fix:
-Confirmed robux = 0 initialization in FetchAccountInfoAsync covers all return paths.
-Ensured account.Robux is used in AddAccountCard.
+### 🚀 Improvements
+- **Thread Safety**: Enhanced thread safety across all UI updates with consistent `Invoke` implementation
+- **Feature Retention**: Maintained all v2.0.4-alpha capabilities including avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling
 
+---
 
+## [2.0.4-alpha] - 2025-07-29
 
-Improvements
+### 🐛 Critical Fixes
+- **Async Operations**: Fixed await operator errors by adding `async` modifier to `ServerHopTimer_Elapsed` and `SchedulerTimer_Elapsed` (renamed to `*Async` variants)
+- **Method Compliance**: Verified all `await` calls are properly contained within async methods
+- **Reference Errors**: Re-verified `robux = 0` initialization in `FetchAccountInfoAsync` and consistent `account.Robux` usage in `AddAccountCard`
 
-Enhanced thread safety for all UI updates with consistent Invoke usage.
-Added error logging for failed Invoke calls.
-Maintained all 2.0.5-alpha features: avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling.
+### 🚀 Improvements
+- **Code Audit**: Comprehensive audit of all methods for proper async/await usage patterns
+- **Feature Stability**: Maintained all v2.0.3-alpha features including avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling
 
-[2.0.5-alpha] - 2025-07-29
-Bugfixes
+---
 
-Fixed Cross-Thread Operation Error:
-Ensured all txtLogOutput updates in LogMessage use Invoke.
-Added Invoke to UpdateAccountList and RemoveInvalidTokens for lstAccounts and txtTokens updates.
-Added Invoke to MonitorGameAsync for adding gameLabel and watchButton to panel.
+## [2.0.3-alpha] - 2025-07-25
 
+### ✨ Added
+- **Bot Scheduling**: Implemented automated bot scheduling via `SchedulerTimer_Elapsed` to join games at 8:00 AM daily for idle accounts
+- **Discord Integration**: Added Discord webhook notifications for comprehensive bot action tracking (game joins, follows, messages)
+- **Token Support**: Enhanced support for `CAEaAhAB` tokens with fallback to `https://users.roblox.com/v1/users/authenticated` and proper X-CSRF-Token handling
 
-Re-verified Await Operator Fix:
-Confirmed ServerHopTimer_ElapsedAsync and SchedulerTimer_ElapsedAsync are correctly marked async.
+### 🐛 Fixed
+- **Null Reference**: Resolved null reference exception in `AddAccountCard` when `account.Badges` is null
+- **Game Monitoring**: Fixed crashes in `MonitorGameAsync` by implementing proper null handling for `placeId` and `universeId`
+- **Data Storage**: Resolved token storage issues in SQLite with proper DPAPI encryption implementation
 
+### 🚀 Improvements
+- **Performance**: Enhanced `ToolStripBtnGetAccounts_Click` performance using `SemaphoreSlim` with 10 concurrent request limit
+- **UI Responsiveness**: Improved UI responsiveness by migrating API calls to background tasks
+- **Logging**: Updated `RobloxMultiLog.txt` logging system with timestamps and detailed error reporting
 
-Re-verified Robux Reference Fix:
-Confirmed robux = 0 initialization in FetchAccountInfoAsync.
-Ensured account.Robux is used in AddAccountCard.
+---
 
+## [2.0.2-alpha] - 2025-07-20
 
+### ✨ Added
+- **Game Monitoring**: Implemented real-time game monitoring in `MonitorGameAsync` displaying game name, place ID, universe ID, player count, and elapsed time
+- **Token Management**: Added `RemoveInvalidTokens` functionality with user-controlled invalid token removal via `chkRemoveInvalidTokens`
+- **Export Features**: Implemented token export functionality through `ToolStripBtnExportTokens_Click`
 
-Improvements
+### 🐛 Fixed
+- **Token Loading**: Resolved duplicate token loading issues in `ToolStripBtnLoadTokens_Click`
+- **JSON Parsing**: Fixed JSON deserialization errors in `FetchAccountInfoAsync` using `TryGetProperty` for safer parsing
+- **UI Performance**: Eliminated UI freezing in `ToolStripBtnGetAccounts_Click` by properly awaiting async tasks
 
-Enhanced thread safety for all UI updates by consistently using Invoke.
-Maintained all 2.0.4-alpha features: avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling.
+### 🚀 Improvements
+- **Caching**: Optimized `FetchAccountInfoAsync` with avatar URL caching for improved performance
+- **Error Handling**: Enhanced error handling in `ToolStripBtnLogin_Click` with proper "Error" status marking for failed launches
+- **Theme**: Updated neon purple/teal dark mode color scheme for improved contrast and visual appeal
 
-[2.0.4-alpha] - 2025-07-29
-Bugfixes
+---
 
-Fixed Await Operator Error:
-Added async modifier to ServerHopTimer_Elapsed and SchedulerTimer_Elapsed, renaming to ServerHopTimer_ElapsedAsync and SchedulerTimer_ElapsedAsync.
-Verified all await calls are within async methods.
+## [2.0.1-alpha] - 2025-07-15
 
+### ✨ Added
+- **Multi-Account System**: Implemented comprehensive multi-account switching via `SwitchAccount` and `AddAccountCard`
+- **Secure Storage**: Added secure token storage using SQLite database with DPAPI encryption
+- **Discord RPC**: Integrated Discord Rich Presence for real-time account status display
 
-Fixed Robux Reference Error:
-Re-verified robux = 0 initialization in FetchAccountInfoAsync.
-Ensured account.Robux is used consistently in AddAccountCard.
+### 🐛 Fixed
+- **Input Validation**: Fixed application crash in `ToolStripBtnFollow_Click` when `txtTargetUsername` field was empty
+- **Message System**: Resolved message sending failures in `ToolStripBtnSendMessage_Click` by adding proper content-type headers
+- **Layout Issues**: Fixed layout problems in `flpAccounts` with proper `AutoScroll` and margin configurations
 
+### 🚀 Improvements
+- **Token Filtering**: Enhanced `ToolStripBtnLoadTokens_Click` to filter `_|-` or `CAEaAhAB` tokens with 10-token limit
+- **Status Display**: Improved `UpdateStatus` with color-coded feedback (success: MediumSeaGreen, error: IndianRed)
+- **User Experience**: Added hover effects to account card buttons for better interactivity
 
+---
 
-Improvements
+## [2.0.0-alpha] - 2025-07-10
 
-Audited all methods for proper async usage.
-Maintained all 2.0.3-alpha features: avatar fetching, secure token storage, multi-account switching, Discord RPC, game monitoring, and bot scheduling.
+### ✨ Major Release - Complete UI Overhaul
+- **Modern UI**: Introduced completely redesigned interface with neon purple/teal dark mode theme (purple: 128, 0, 128, teal: 0, 128, 128)
+- **Dynamic Accounts**: Implemented `flpAccounts` for dynamic account card display showing avatar, username, Robux, friends, and badges
+- **Automation Features**: Added automated following and messaging through `ToolStripBtnFollow_Click` and `ToolStripBtnSendMessage_Click`
+- **Server Hopping**: Implemented automatic server hopping with 20-minute timer intervals
 
-[2.0.3-alpha] - 2025-07-25
-Added
+### 🐛 Fixed
+- **Initialization**: Resolved application crash during `Form1` initialization by correcting `InitializeComponent` calls
+- **HTTP Management**: Fixed HTTP client disposal issues by implementing single `HttpClient` instance pattern
+- **Changelog Display**: Corrected changelog rendering in `txtChangelog` using WebView2 integration
 
-Bot scheduling via SchedulerTimer_Elapsed to join games at 8:00 AM daily for idle accounts.
-Discord webhook notifications for bot actions (game joins, follows, messages).
-Support for CAEaAhAB tokens with fallback to https://users.roblox.com/v1/users/authenticated and X-CSRF-Token handling.
+### 🚀 Improvements
+- **Account Display**: Replaced basic ListBox with enhanced ListView for `lstAccounts` showing username, user ID, token, and status
+- **Logging System**: Added comprehensive logging to `RobloxMultiLog.txt` for all actions and errors
+- **Token Processing**: Enhanced token loading to automatically skip blank lines and filter invalid tokens
 
-Bugfixes
+---
 
-Fixed null reference in AddAccountCard when account.Badges is null.
-Resolved crashes in MonitorGameAsync by handling null placeId and universeId.
-Fixed token storage issue in SQLite with DPAPI encryption.
+## [1.6.6-alpha] - 2025-07-29
 
-Improvements
+### 🔄 Changed
+- **Token Priority**: Updated token prefix validation to prioritize `CAEaAhAB` over `_|-` tokens in `ToolStripBtnLoadTokens_Click` and `ToolStripBtnGetAccounts_Click`
+- **API Integration**: Maintained robust Roblox API integration using `https://users.roblox.com/v1/users/authenticated` for token-based authentication
 
-Improved performance of ToolStripBtnGetAccounts_Click with SemaphoreSlim (10 concurrent requests).
-Enhanced UI responsiveness by moving API calls to background tasks.
-Updated RobloxMultiLog.txt logging with timestamps and detailed errors.
+### 🐛 Fixed
+- **Token Processing**: Ensured exclusive `CAEaAhAB` token processing, significantly reducing invalid API calls and HTTP Unauthorized errors
+- **Error Reduction**: Retained all fixes from v1.6.5-alpha for X-CSRF-Token handling, session verification, and concurrent token processing
 
-[2.0.2-alpha] - 2025-07-20
-Added
+### 🚀 Improvements
+- **Performance**: Enhanced token filtering for improved performance and reduced error rates during loading and validation
+- **Concurrency**: Maintained support for up to 10 concurrent token operations with `SemaphoreSlim`
 
-Game monitoring in MonitorGameAsync for real-time game details (game name, place ID, universe ID, player count, elapsed time).
-RemoveInvalidTokens to clear invalid tokens when chkRemoveInvalidTokens is checked.
-Export functionality via ToolStripBtnExportTokens_Click.
+---
 
-Bugfixes
+## [1.6.5-alpha] - 2025-07-29
 
-Fixed duplicate token loading in ToolStripBtnLoadTokens_Click.
-Resolved JSON deserialization errors in FetchAccountInfoAsync with TryGetProperty.
-Fixed UI freeze in ToolStripBtnGetAccounts_Click by awaiting async tasks.
+### ✨ Added
+- **Enhanced Authentication**: Implemented robust token-based authentication using `.ROBLOSECURITY` tokens with `https://users.roblox.com/v1/users/authenticated`
+- **CSRF Handling**: Added comprehensive X-CSRF-Token handling for 403 Forbidden errors via `https://auth.roblox.com/v1/authentication-ticket`
+- **Session Verification**: Implemented post-login session verification through `VerifySessionAsync`
+- **Concurrent Processing**: Added support for multiple token registration with `_|-` token filtering (up to 10 concurrent operations)
 
-Improvements
+### 🐛 Fixed
+- **Authentication Errors**: Resolved HTTP Unauthorized errors with detailed error logging and comprehensive token format validation
+- **Process Security**: Ensured proper token escaping in process arguments for security
+- **Thread Safety**: Maintained fixes for `InvokeRequired`/`Invoke` operations and `List<T>` errors from v1.6.4-alpha
 
-Optimized FetchAccountInfoAsync to cache avatar URLs.
-Improved error handling in ToolStripBtnLogin_Click to mark failed launches as "Error".
-Updated neon purple/teal dark mode colors for better contrast.
+### 🚀 Improvements
+- **Error Handling**: Enhanced error handling in `FetchAccountInfoAsync` with complete HTTP response content logging
+- **Session Management**: Improved `ToolStripBtnLogin_Click` to verify sessions after launching Roblox instances
+- **Token Validation**: Implemented early invalid token filtering to reduce API errors
+- **Performance**: Maintained efficient concurrent token processing with `SemaphoreSlim`
 
-[2.0.1-alpha] - 2025-07-15
-Added
+---
 
-Multi-account switching via SwitchAccount and AddAccountCard.
-Secure token storage with SQLite and DPAPI encryption.
-Discord RPC integration for account status display.
+## [1.6.4-alpha] - 2025-07-29
 
-Bugfixes
+### 🐛 Critical Fixes
+- **Thread Safety**: Resolved thread-safe UI update errors in `UpdateStatus` by implementing proper `Form.InvokeRequired` and `Invoke` patterns
+- **Type Safety**: Corrected generic type errors by explicitly specifying `List<string>` for `invalidTokens` and `List<Task<...>>` for task collections
+- **Compilation**: Fixed compilation error in `Form1.designer.cs` by removing invalid syntax (`new Form1` / `InitializeComponent`)
+- **Namespace**: Corrected namespace inconsistencies to `Multiplerblx` throughout the project
+- **Dependencies**: Added `using System.Windows.Forms;` in `Program.cs` to resolve `ApplicationConfiguration` errors
 
-Fixed crash in ToolStripBtnFollow_Click when txtTargetUsername was empty.
-Resolved message sending issue in ToolStripBtnSendMessage_Click with content-type header.
-Fixed layout issues in flpAccounts with AutoScroll and margins.
+### 🚀 Improvements
+- **Concurrency**: Enhanced token loading and validation with `SemaphoreSlim` supporting 10 concurrent token operations
+- **Error Logging**: Added detailed error logging in `FetchAccountInfoAsync` for HTTP Unauthorized error diagnosis
+- **Token Processing**: Improved token processing with automatic whitespace trimming
+- **Theme Support**: Extended theme support to `lstAccounts`, `txtTokens`, `txtGameId`, and `txtRobloxPath` controls
+- **Security**: Maintained administrator privilege support via `app.manifest` configuration
 
-Improvements
+---
 
-Enhanced ToolStripBtnLoadTokens_Click to filter _|- or CAEaAhAB tokens (limit 10).
-Improved UpdateStatus with success (MediumSeaGreen) and error (IndianRed) colors.
-Added hover effects to account card buttons.
+*For versions 1.6.3-alpha and earlier, see [Legacy Changelog](CHANGELOG_LEGACY.md)*
 
-[2.0.0-alpha] - 2025-07-10
-Added
+---
 
-New UI with neon purple/teal dark mode (purple: 128, 0, 128, teal: 0, 128, 128).
-flpAccounts for dynamic account card display (avatar, username, Robux, friends, badges).
-Automated following and messaging via ToolStripBtnFollow_Click and ToolStripBtnSendMessage_Click.
-Server hopping with 20-minute timer.
+## Contributing
 
-Bugfixes
+When contributing to this project, please:
+- Follow the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format
+- Use appropriate emoji prefixes for different change types
+- Include detailed descriptions for breaking changes
+- Reference issue numbers where applicable
 
-Fixed initialization crash in Form1 by calling InitializeComponent correctly.
-Resolved HTTP client disposal issues with single HttpClient instance.
-Fixed changelog display in txtChangelog using WebView2.
+## Version Information
 
-Improvements
+- **Alpha releases** are development versions with potential breaking changes
+- **Beta releases** are feature-complete versions undergoing testing  
+- **Stable releases** are production-ready versions
 
-Replaced ListBox with ListView for lstAccounts (username, user ID, token, status).
-Added logging to RobloxMultiLog.txt for actions and errors.
-Improved token loading to skip blank lines and invalid tokens.
-
-[1.6.6-alpha] - 2025-07-29
-Changed
-
-Updated token prefix check to prioritize CAEaAhAB over _|- in ToolStripBtnLoadTokens_Click and ToolStripBtnGetAccounts_Click.
-Maintained Roblox API integration (https://users.roblox.com/v1/users/authenticated) for token-based authentication.
-
-Bugfixes
-
-Ensured only CAEaAhAB tokens are processed, reducing invalid API calls and HTTP Unauthorized errors.
-Retained fixes from 1.6.5-alpha for X-CSRF-Token handling, session verification, and concurrent token processing.
-
-Improvements
-
-Improved token filtering for performance and reduced errors during loading and validation.
-Maintained support for up to 10 concurrent tokens with SemaphoreSlim.
-
-[1.6.5-alpha] - 2025-07-29
-Added
-
-Enhanced token-based authentication using .ROBLOSECURITY tokens with https://users.roblox.com/v1/users/authenticated.
-X-CSRF-Token handling for 403 Forbidden errors via https://auth.roblox.com/v1/authentication-ticket.
-Session verification post-login with VerifySessionAsync.
-Multiple token registration with filtering for _|- tokens (up to 10 concurrently).
-
-Bugfixes
-
-Fixed HTTP Unauthorized errors with detailed error logging and token format validation.
-Ensured proper escaping of tokens in process arguments.
-Maintained fixes for InvokeRequired/Invoke and List<T> errors from 1.6.4-alpha.
-
-Improvements
-
-Improved error handling in FetchAccountInfoAsync with full HTTP response content logging.
-Enhanced ToolStripBtnLogin_Click to verify sessions after launching Roblox instances.
-Filtered out invalid tokens early to reduce API errors.
-Maintained concurrent token processing with SemaphoreSlim.
-
-[1.6.4-alpha] - 2025-07-29
-Bugfixes
-
-Fixed thread-safe UI update errors in UpdateStatus by using Form’s InvokeRequired and Invoke.
-Corrected generic type errors by specifying List<string> for invalidTokens and List<Task<...>> for tasks.
-Fixed compilation error in Form1.designer.cs by removing invalid syntax (new Form1 / InitializeComponent).
-Corrected namespace inconsistencies to Multiplerblx.
-Added using System.Windows.Forms; in Program.cs to resolve 'ApplicationConfiguration' error.
-
-Improvements
-
-Enhanced token loading and validation with SemaphoreSlim (10 concurrent tokens).
-Added detailed error logging in FetchAccountInfoAsync for HTTP Unauthorized errors.
-Improved token processing by trimming whitespace.
-Extended theme support to lstAccounts, txtTokens, txtGameId, and txtRobloxPath.
-Maintained admin privilege support via app.manifest.
-
-[1.6.3-alpha] - 2025-07-31
-Added
-
-Concurrent token loading and validation with SemaphoreSlim (up to 10 tokens).
-
-Bugfixes
-
-Fixed compilation error in Form1.designer.cs by removing invalid syntax.
-Corrected namespace inconsistencies to Multiplerblx.
-Added using System.Windows.Forms; in Program.cs to fix 'ApplicationConfiguration' error.
-
-Improvements
-
-Enhanced token loading to limit to 10 tokens for resource management.
-Maintained admin privilege support via app.manifest.
-
-[1.6.2-alpha] - 2025-07-31
-Bugfixes
-
-Fixed compilation error in Form1.designer.cs by removing invalid syntax.
-Corrected namespace inconsistencies to Multiplerblx.
-Added using System.Windows.Forms; in Program.cs.
-Ensured app.manifest with requireAdministrator is correctly referenced.
-
-Improvements
-
-Improved project maintainability with consistent namespace usage.
-Clarified admin privilege setup for process management.
-
-[1.6.1-alpha] - 2025-07-30
-Added
-
-Auto-detection of RobloxPlayerBeta.exe path based on user profile.
-Right-click context menu in accounts list for copying username/token/details.
-Improved logging with timestamps and color-coded messages.
-
-Bugfixes
-
-Fixed authentication and JSON parsing errors in Roblox API calls.
-Added handling for expired/invalid tokens with optional auto-removal.
-Fixed UI thread safety to avoid freezes.
-Corrected ToolStripBtnUpdate_Click to reload changelogs with proper messages.
-
-Improvements
-
-Enhanced user experience with theme toggling and detailed status messages.
-Improved process management during server hopping.
-Refined UI for ListView drawing and responsiveness.
-
-[1.6.0-alpha] - 2025-07-30
-Added
-
-Context menu (right-click) on accounts list for copying details.
-Auto-detection of RobloxPlayerBeta.exe path.
-Robust handling for expired/invalid tokens with optional removal.
-
-Bugfixes
-
-Fixed authentication failures and JSON parsing errors in token validation.
-Fixed UI refresh and threading issues.
-Corrected ToolStripBtnUpdate_Click logic for changelog reloading.
-
-Improvements
-
-Enhanced logging with detailed token validation results.
-Improved server hopping for clean process restarts.
-Enhanced user experience with status bar messages and log visuals.
-
-[1.5.0-alpha] - 2025-07-30
-Added
-
-Real account info fetching using Roblox API for usernames and user IDs.
-Account context menu for copying details.
-Persistent settings for editable Roblox executable path.
-Animated tab transitions with slide effects.
-
-Changed
-
-Revamped sidebar UI with consistent theming and hover effects.
-Enhanced account list with owner-drawn status colors.
-Improved server hopping logic and background timers.
-
-Bugfixes
-
-Replaced deprecated Roblox API endpoint to fix 404 errors.
-Added missing event handlers for ListView double-click and context menus.
-Removed invalid placeholders causing compilation errors.
-Fixed redraw and flicker bugs for theme switching.
-Removed dependency on external JSON libraries using System.Text.Json.
-
-[1.4.0-alpha] - 2025-07-29
-Added
-
-Real account info fetching via Roblox API.
-Account context menu for copying details.
-Persistent settings for Roblox executable path.
-Improved logging with detailed token validation results.
-Animated tab transitions with slide effects.
-
-Changed
-
-Enhanced sidebar UI with hover feedback and theming.
-Refined account status colors and API error handling.
-Optimized server hopping and background timers.
-
-Bugfixes
-
-Removed invalid placeholders from code.
-Implemented missing event handlers for ListView.
-Fixed flickering issues in ListView on theme switch.
-Removed external dependencies using System.Text.Json.
-Fixed token loading, export, and status refresh logic.
-
-[1.3.0-alpha] - 2025-07-28
-Added
-
-GUI redesign with vertical sidebar, responsive layout, and dark/light themes.
-RichTextBox-based log output with color-coded messages.
-Owner-drawn ListView with status colors and context menu.
-Double-click account info popup.
-Editable Roblox executable path setting.
-Animated tab transitions and background timers.
-
-Changed
-
-Moved sidebar to left, redesigned buttons.
-Moved status bar to bottom with gradient background.
-Improved logging with async UI updates.
-Refined server hop logic for clean process restarts.
-
-Bugfixes
-
-Resolved compilation errors from invalid placeholders.
-Fixed missing event handlers for ListView double-click.
-Removed invalid Properties.Settings references.
-Prevented flickering during theme switching.
-Corrected owner-draw logic for ListView.
-
-[1.2.0-alpha] - 2025-07-27
-Added
-
-Slide animation for tab transitions.
-Comprehensive error handling for file operations and HTTP requests.
-
-Changed
-
-Removed System.Management dependency for instance calculations.
-Fixed compilation errors in Form1.cs.
-Updated changelog URL to GitHub repository.
-
-Bugfixes
-
-Resolved userId variable conflict in GetAccountInfoAsync.
-Corrected invalid TabPage.Opacity usage.
-Fixed ControlExtensions and this in static context errors.
-
-[1.1.0-alpha] - 2025-06-15
-Added
-
-Ban detection via Roblox API checks.
-Server hopping with 20-minute timer.
-GUI revamp with dark theme and animated buttons.
-Token export functionality.
-Account status refresh button.
-
-Bugfixes
-
-None (new features added).
-
-Improvements
-
-Enhanced UI with dark theme and button animations.
-Improved token export and status refresh functionality.
-
-[1.0.0-alpha] - 2025-05-01
-Added
-
-Initial implementation of Multiplerblx.
-Token loading from text files.
-Account fetching using Roblox API with .ROBLOSECURITY tokens.
-Basic Roblox instance launching with token authentication.
-Logging system for actions and errors.
-
-Bugfixes
-
-None (initial release).
-
-Improvements
-
-Set up project structure with Program.cs and Form1.cs.
-Configured app.manifest for administrator privileges.
-Initialized HttpClient with User-Agent: Roblox/WinInet.
+For more information, visit our [GitHub repository](https://github.com/yourusername/multiplerblx).
