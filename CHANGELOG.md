@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.9-alpha] - 2025-07-30
+
+### ✨ Added
+- **Custom Discord Rich Presence**: Implemented dynamic Discord RPC to reflect application states:
+  - "Idle" when no tokens are loaded (on startup)
+  - "Tokens loaded" after successfully loading tokens
+  - "Managing accounts" after fetching account details
+  - "Logged in as [username]" when switching to an account
+  - "Playing [game name]" when an account is in a game
+
 ## [2.0.8-alpha] - 2025-07-29
 
 ### ✨ Added
