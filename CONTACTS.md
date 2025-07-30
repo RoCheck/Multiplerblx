@@ -8,4 +8,4 @@
 
 # Discord Server COMING SOON
 
-# gmail business contact 
+# gmail business contact SOON
