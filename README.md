@@ -4,7 +4,7 @@ Multiplerblx is a tool designed to log into up to 10 Roblox accounts at once and
 # Why Was This Tool Created?
 This tool was made to log Roblox users' in-game chat across multiple accounts. The collected chat data will be used for AI training and development.
 
-Full release date: April 10th, 2026
+Full release date: August 5th, 2025
 
 Chat logging will be included in the full release
 
@@ -17,11 +17,6 @@ Multiplerblx does not have any built-in functionality to inject Lua code into Ro
 Xeno is a Roblox executor trusted by many users. While Multiplerblx does not rely on Xeno, it can be used alongside it if Lua script execution is needed.
 
 ## Note: The safety and reliability of Xeno cannot be guaranteed. Use third-party tools at your own discretion.
- 
-# Upcoming Features
-Feature	Planned Release
-Built-in Chat Logger	April 10th, 2026
-No Executor Needed	October 5th, 2026
 
 # Notes
 Multiplerblx is intended for educational and AI development use only
