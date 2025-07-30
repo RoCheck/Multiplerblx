@@ -19,7 +19,7 @@ This section outlines potential features and improvements for future versions of
         *   Include explicit consent language: "By selecting 'Yes', you agree to allow RoCheckRblx/RoCheck to collect the chat logs gathered by this tool for AI analysis."
         *   Ensure a clear 'No' option is always available, and respect the user's choice persistently.
         *   Implement secure, anonymized data upload mechanisms if consent is given.
-        *   **Important:** This must be strictly opt-in and transparent to comply with privacy standards and user trust.
+          
 
 ### 🧪 Experimental / Advanced Ideas
 
