@@ -27,11 +27,12 @@ This software and its source code are proprietary and protected under copyright 
 
 5. **No Commercial Use**
    - This software may not be used for commercial or revenue-generating purposes without prior, written permission from RoCheckRblx.
-   - "Commercial use" includes selling, licensing, bundling, renting, or offering the software as part of a paid service.
+   - "Commercial use" includes selling, licensing, bundling, renting, or offering the software as part of a paid service. 
 
 6. **No Disclosure**
    - You are not allowed to publish, screenshot, stream, or otherwise reveal any part of the internal workings of the software to others.
    - This includes technical details such as variable names, file structure, or how the app functions behind the scenes.
+   - aka code 
 
 7. **Legal Enforcement & Termination**
    - If you break any of these rules, your permission to use this software is revoked immediately.
