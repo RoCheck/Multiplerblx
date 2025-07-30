@@ -46,3 +46,11 @@ This section outlines potential features and improvements for future versions of
     *   Improve the layout and information density of account cards.
     *   Add sorting and filtering options for the account list (`lstAccounts`).
     *   Implement a more robust settings system (e.g., saving/loading settings to/from a file).
+    *   
+
+### Insane features (i might add these)
+
+*   *instead of it using your ram it will use our servers ram if possible and when i get servers*
+*   *instead of using your gpu/cpu it will use our servers if possible
+  
+    
