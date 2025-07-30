@@ -253,5 +253,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Alpha releases** are development versions with potential breaking changes
 - **Beta releases** are feature-complete versions undergoing testing  
 - **Stable releases** are production-ready versions
-
-For more information, visit our [GitHub repository](https://github.com/yourusername/multiplerblx).
