@@ -1,4 +1,6 @@
 ## Multiplerblx (MultipleRoblox)
+### PLEASE DO NOT SHARE YOUR REAL ROBLOX ACCOUNT TOKENS ONLY ALT ACCOUNT TOKENS SO THEN YOUR ACCOUNT HAS A LOWER CHANCE OF GETTING HACKED 
+### WE DONT SAVE TOKENS/COOKIES BUT FOR YOUR SAFETY WE SHALL SAY THIS 
 
 Multiplerblx is a tool designed to manage and launch multiple Roblox accounts simultaneously using account tokens. It allows users to load accounts, validate them, and join them into the same game using a specified Place ID.
 
