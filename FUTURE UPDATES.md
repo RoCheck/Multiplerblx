@@ -10,7 +10,7 @@ This section outlines potential features and improvements for future versions of
 
 *   **Multi-Game Support:**
     *   Investigate the feasibility of extending core automation features (account switching, launching) to other platforms like CSGO or Fortnite.
-    *   Note: This would likely require significant architectural changes and platform-specific implementations, moving beyond Roblox's token system.
+      
 
 *   **AI-Powered Chat Analysis (Opt-in):**
     *   *Concept:* Offer an optional feature where users can contribute collected chat logs to RoCheck for AI training/analysis.
