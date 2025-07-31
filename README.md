@@ -1,30 +1,24 @@
-# Multiplerblx (MultipleRoblox)
-Multiplerblx is a tool designed to log into up to 10 Roblox accounts at once and join them into the same game using a specified gameId.
+## Multiplerblx (MultipleRoblox)
 
-# Why Was This Tool Created?
-This tool was made to log Roblox users' in-game chat across multiple accounts. The collected chat data will be used for AI training and development.
+Multiplerblx is a tool designed to manage and launch multiple Roblox accounts simultaneously using account tokens. It allows users to load accounts, validate them, and join them into the same game using a specified Place ID.
 
-Full release date: August 5th, 2025
+### Why Was This Tool Created?
 
-Chat logging will be included in the full release
+This tool was developed to facilitate the management of multiple Roblox accounts. A key future application involves logging in-game chat across these accounts. The collected chat data is intended for AI training and development, with user consent.
 
-This tool does not currently support Lua script injection
+*   **Full release date:** August 5th, 2025
+*   **Chat logging feature:** Planned for inclusion in the full release.
+*   **Lua Injection Support:** This tool does not currently support, nor is it intended to support, Lua script injection into Roblox. Its focus is on account management and automation.
 
-# No Lua Injection Support
-Multiplerblx does not have any built-in functionality to inject Lua code into Roblox. This is due to the current development level and coding limitations. Script execution may be added in the future.
+### What is Xeno?
 
-# What is Xeno?
-Xeno is a Roblox executor trusted by many users. While Multiplerblx does not rely on Xeno, it can be used alongside it if Lua script execution is needed.
+Xeno is a third-party Roblox executor. Multiplerblx is an independent tool focused on account management and does not integrate with, rely on, or endorse Xeno or any similar executor tools for Lua script execution.
 
-## Note: The safety and reliability of Xeno cannot be guaranteed. Use third-party tools at your own discretion.
+**Note:** The safety, reliability, and compliance with Roblox's Terms of Service of Xeno or any other third-party executor cannot be guaranteed. Use such tools at your own risk and discretion.
 
-# Notes
-Multiplerblx is intended for educational and AI development use only
+### Important Notes
 
-Use responsibly and in compliance with Roblox's terms of service
-
-This project is currently in early development
-
-
-
-
+*   Multiplerblx is intended for educational purposes and legitimate automation.
+*   Users must ensure their use of this tool complies with Roblox's Terms of Service.
+*   This project is under active development. Features and functionality are subject to change.
+*   **Data Collection Notice:** Future versions may include opt-in features for collecting data (like chat logs) for AI analysis. Clear user consent will be required for such features.
